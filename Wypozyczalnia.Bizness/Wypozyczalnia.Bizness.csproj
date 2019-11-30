@@ -43,11 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Car.cs" />
+    <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\Manager.cs" />
+    <Compile Include="Classes\Emploee.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Interface\ICarActions.cs" />
+    <Compile Include="Classes\Interface\IClientActions.cs" />
+    <Compile Include="Utilities\DataBaseAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\Structures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Program
+    interface IClientActions
     {
-        static void Main(string[] args)
-        {
-        }
+        void AddClient();
+
+        void ModyfiClient();
+
+        void DeleteClient();
     }
 }
