@@ -8,5 +8,13 @@ namespace Wypozyczalnia.Bizness
 {
     class Login
     {
+        public void DataCheck(string _login, string _password)
+        {
+            //Connect to database and check 
+            Security passwordCheck = new Security();
+            passwordCheck.EncodeToSHA256(_password);
+
+            //Get password fromdatabase
+        }
     }
 }

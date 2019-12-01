@@ -18,5 +18,12 @@ namespace Wypozyczalnia.Bizness
                 return builder.ToString();
             }
         }
+        public string PasswordGenerate()
+        {
+            string Password = null;
+
+
+            return Password;
+        }
     }
 }

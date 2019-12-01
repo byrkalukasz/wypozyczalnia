@@ -8,31 +8,6 @@ namespace Wypozyczalnia.Bizness
 {
     class Car
     {
-        public int AddCar()
-        {
-            int Id = 0;
 
-            return Id;
-        }
-
-        public void AddCarData()
-        {
-
-        }
-
-        public void RentCar()
-        {
-
-        }
-
-        public void GetBackCar()
-        {
-
-        }
-
-        public void RegisterCar()
-        {
-
-        }
     }
 }

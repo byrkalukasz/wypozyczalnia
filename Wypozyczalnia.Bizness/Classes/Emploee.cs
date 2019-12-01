@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Emploee : ICarActions
+    class Emploee : Person, ICarActions
     {
         public void AddCar()
         {
