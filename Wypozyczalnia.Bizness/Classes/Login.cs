@@ -14,7 +14,7 @@ namespace Wypozyczalnia.Bizness
             Security passwordCheck = new Security();
             passwordCheck.EncodeToSHA256(_password);
 
-            //Get password fromdatabase
+            //Get password from database
         }
     }
 }
