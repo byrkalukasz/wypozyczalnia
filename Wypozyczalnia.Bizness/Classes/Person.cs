@@ -8,5 +8,7 @@ namespace Wypozyczalnia.Bizness
 {
     class Person
     {
+        string Name;
+        string Surmane;
     }
 }
