@@ -6,17 +6,25 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Login
+    public class Login
     {
-        public void DataCheck(string _login, string _password)
+        public int Status;
+        public int DataCheck(string _login, string _password)
         {
             Security passwordCheck = new Security();
             string HashPassword = passwordCheck.EncodeToSHA256(_password);
 
             if (_password == HashPassword)
             {
-               
+                Status = 2;
+                return Status;
             }
+            else
+            {
+                Status = 2;
+                return Status;
+            }
+
         }
     }
 }

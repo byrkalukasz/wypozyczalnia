@@ -67,6 +67,7 @@
             this.login_button.TabIndex = 2;
             this.login_button.Text = "Zaloguj";
             this.login_button.UseVisualStyleBackColor = false;
+            this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
             // password_textBox
             // 

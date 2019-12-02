@@ -110,5 +110,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wypozyczalnia.Bizness\Wypozyczalnia.Bizness.csproj">
+      <Project>{2781b1af-445e-4ef0-b9fc-4e2f00e40d34}</Project>
+      <Name>Wypozyczalnia.Bizness</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

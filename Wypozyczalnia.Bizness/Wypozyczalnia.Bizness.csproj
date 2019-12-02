@@ -54,6 +54,7 @@
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Interface\ICarActions.cs" />
     <Compile Include="Classes\Interface\IClientActions.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Utilities\Security.cs" />
     <Compile Include="Utilities\DataBaseAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
