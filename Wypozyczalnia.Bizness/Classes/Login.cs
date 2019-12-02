@@ -10,11 +10,13 @@ namespace Wypozyczalnia.Bizness
     {
         public void DataCheck(string _login, string _password)
         {
-            //Connect to database and check 
             Security passwordCheck = new Security();
-            passwordCheck.EncodeToSHA256(_password);
+            string HashPassword = passwordCheck.EncodeToSHA256(_password);
 
-            //Get password from database
+            if (_password == HashPassword)
+            {
+               
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Wypozyczalnia.Bizness
 {
     class Client : Person
     {
-
+        string Pesel, NIP, DataRejestracji, 
+        
     }
 }
