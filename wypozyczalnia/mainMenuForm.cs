@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace wypozyczalnia
 {
-    public partial class loginForm : Form
+    public partial class mainMenuForm : Form
     {
-        public loginForm()
+        public mainMenuForm()
         {
             InitializeComponent();
         }
