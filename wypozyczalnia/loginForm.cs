@@ -17,6 +17,10 @@ namespace wypozyczalnia
         {
             InitializeComponent();
         }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         private void button1_Click(object sender, EventArgs e)
         {
 
