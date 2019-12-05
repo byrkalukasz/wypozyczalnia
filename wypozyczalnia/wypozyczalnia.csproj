@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="carForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="carForm.Designer.cs">
+      <DependentUpon>carForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="carForm.resx">
+      <DependentUpon>carForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainMenuForm.resx">
       <DependentUpon>mainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
