@@ -15,6 +15,8 @@ namespace Wypozyczalnia.Bizness
             passwordCheck.EncodeToSHA256(_password);
 
             //Get password from database
+            //porownaj  hasła
+            //jezeli rowne to przejdz dalej jak nie to alert
         }
     }
 }
