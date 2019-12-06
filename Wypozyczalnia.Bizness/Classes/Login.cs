@@ -6,17 +6,26 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Login
+    public class Login
     {
-        public void DataCheck(string _login, string _password)
+        public int Status;
+        public int DataCheck(string _login, string _password)
         {
-            //Connect to database and check 
             Security passwordCheck = new Security();
-            passwordCheck.EncodeToSHA256(_password);
+            string HashPassword = passwordCheck.EncodeToSHA256(_password);
 
-            //Get password from database
-            //porownaj  hasła
-            //jezeli rowne to przejdz dalej jak nie to alert
+            if (_password == HashPassword)
+            {
+                Status = 2;
+                return Status;
+            }
+            else
+            {
+                Status = 2;
+                return Status;
+            }
+
+
         }
     }
 }

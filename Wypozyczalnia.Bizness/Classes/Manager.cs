@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Manager : Person, ICarActions
+    class Manager : Person, ICarActions, IClientActions
     {
+        Security security = new Security();
         public void AddEmploee()
         {
 
@@ -35,6 +36,24 @@ namespace Wypozyczalnia.Bizness
         public void RegisterCar()
         {
 
+        }
+        public void AddClient()
+        {
+
+        }
+        public void ModyfiClient()
+        {
+
+        }
+
+        public void DeleteClient()
+        {
+
+        }
+        public void AddNewEmploee()
+        {
+            string Password;
+            Password = security.PasswordGenerate();
         }
     }
 }

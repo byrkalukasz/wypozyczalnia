@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Client : Person
+    class Program
     {
-        string Pesel, NIP, DataRejestracji; 
-        
+        static void Main()
+        { }
     }
 }
