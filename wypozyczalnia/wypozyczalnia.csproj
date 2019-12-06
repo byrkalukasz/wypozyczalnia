@@ -70,6 +70,12 @@
     <Compile Include="carForm.Designer.cs">
       <DependentUpon>carForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="personForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personForm.Designer.cs">
+      <DependentUpon>personForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="carForm.resx">
       <DependentUpon>carForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personForm.resx">
+      <DependentUpon>personForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainMenuForm.resx">
       <DependentUpon>mainMenuForm.cs</DependentUpon>
