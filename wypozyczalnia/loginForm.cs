@@ -39,14 +39,12 @@ namespace wypozyczalnia
         {
             int Check;
             Login login = new Login();
-            login.DataCheck(login_textBox.Text, password_textBox.Text);
-            Check = login.Status;
+            Check = login.DataCheck(login_textBox.Text, password_textBox.Text);
             if (Check == 1)
             {
-                this.Close();
-                newThread = new Thread(openNewForm_mainMenuForm);
-                newThread.SetApartmentState(ApartmentState.STA);
-                newThread.Start();
+                this.Hide();
+                mainMenuForm mainMenu = new mainMenuForm();
+                mainMenu.Show();
             }
             else
             {
