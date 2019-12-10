@@ -22,11 +22,12 @@ namespace wypozyczalnia
         {
             int Check;
             Login login = new Login();
-            login.DataCheck(login_textBox.Text, password_textBox.Text);
-            Check = login.Status;
+            Check = login.DataCheck(login_textBox.Text, password_textBox.Text);
             if (Check == 1)
             {
-                //TODO : Pojawienie się menu ponieważ 1 jest statusem poprawnego zalogowania
+                this.Hide();
+                mainMenuForm mainMenu = new mainMenuForm();
+                mainMenu.Show();
             }
             else
             {
