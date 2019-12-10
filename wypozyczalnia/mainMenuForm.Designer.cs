@@ -62,6 +62,7 @@
             this.buttonCloseProgram.TabIndex = 0;
             this.buttonCloseProgram.Text = "Zamknij aplikację";
             this.buttonCloseProgram.UseVisualStyleBackColor = true;
+            this.buttonCloseProgram.Click += new System.EventHandler(this.buttonCloseProgram_Click);
             // 
             // employeeCreateButton
             // 
@@ -74,6 +75,7 @@
             this.employeeCreateButton.TabIndex = 1;
             this.employeeCreateButton.Text = "Dodaj pracownika";
             this.employeeCreateButton.UseVisualStyleBackColor = false;
+            this.employeeCreateButton.Click += new System.EventHandler(this.employeeCreateButton_Click);
             // 
             // groupBox1
             // 
@@ -99,6 +101,7 @@
             this.carRemoveButton.TabIndex = 6;
             this.carRemoveButton.Text = "Usuń samochód";
             this.carRemoveButton.UseVisualStyleBackColor = false;
+            this.carRemoveButton.Click += new System.EventHandler(this.carRemoveButton_Click);
             // 
             // carAddButton
             // 
@@ -111,6 +114,7 @@
             this.carAddButton.TabIndex = 0;
             this.carAddButton.Text = "Dodaj samochód";
             this.carAddButton.UseVisualStyleBackColor = false;
+            this.carAddButton.Click += new System.EventHandler(this.carAddButton_Click);
             // 
             // carEditButton
             // 
@@ -123,6 +127,7 @@
             this.carEditButton.TabIndex = 5;
             this.carEditButton.Text = "Edytuj samochód";
             this.carEditButton.UseVisualStyleBackColor = false;
+            this.carEditButton.Click += new System.EventHandler(this.carEditButton_Click);
             // 
             // groupBox2
             // 
@@ -150,6 +155,7 @@
             this.employeeRemoveButton.TabIndex = 3;
             this.employeeRemoveButton.Text = "Usuń pracownika (?)";
             this.employeeRemoveButton.UseVisualStyleBackColor = false;
+            this.employeeRemoveButton.Click += new System.EventHandler(this.employeeRemoveButton_Click);
             // 
             // employeeEditButton
             // 
@@ -162,6 +168,7 @@
             this.employeeEditButton.TabIndex = 2;
             this.employeeEditButton.Text = "Edytuj pracownika";
             this.employeeEditButton.UseVisualStyleBackColor = false;
+            this.employeeEditButton.Click += new System.EventHandler(this.employeeEditButton_Click);
             // 
             // groupBox3
             // 
@@ -188,6 +195,7 @@
             this.customerRemoveButton.TabIndex = 2;
             this.customerRemoveButton.Text = "Usuń klienta (?)";
             this.customerRemoveButton.UseVisualStyleBackColor = false;
+            this.customerRemoveButton.Click += new System.EventHandler(this.customerRemoveButton_Click);
             // 
             // customerCreateButton
             // 
@@ -200,6 +208,7 @@
             this.customerCreateButton.TabIndex = 0;
             this.customerCreateButton.Text = "Dodaj klienta";
             this.customerCreateButton.UseVisualStyleBackColor = false;
+            this.customerCreateButton.Click += new System.EventHandler(this.customerCreateButton_Click);
             // 
             // customerEditButton
             // 
@@ -212,6 +221,7 @@
             this.customerEditButton.TabIndex = 1;
             this.customerEditButton.Text = "Edytuj klienta";
             this.customerEditButton.UseVisualStyleBackColor = false;
+            this.customerEditButton.Click += new System.EventHandler(this.customerEditButton_Click);
             // 
             // reservationsGroupBox
             // 
@@ -238,6 +248,7 @@
             this.reservationsRemoveButton.TabIndex = 3;
             this.reservationsRemoveButton.Text = "Usuń rezerwację";
             this.reservationsRemoveButton.UseVisualStyleBackColor = false;
+            this.reservationsRemoveButton.Click += new System.EventHandler(this.reservationsRemoveButton_Click);
             // 
             // reservationsAddButton
             // 
@@ -250,6 +261,7 @@
             this.reservationsAddButton.TabIndex = 1;
             this.reservationsAddButton.Text = "Dodaj rezerwację";
             this.reservationsAddButton.UseVisualStyleBackColor = false;
+            this.reservationsAddButton.Click += new System.EventHandler(this.reservationsAddButton_Click);
             // 
             // reservationsEditButton
             // 
@@ -262,6 +274,7 @@
             this.reservationsEditButton.TabIndex = 2;
             this.reservationsEditButton.Text = "Edytuj rezerwację";
             this.reservationsEditButton.UseVisualStyleBackColor = false;
+            this.reservationsEditButton.Click += new System.EventHandler(this.reservationsEditButton_Click);
             // 
             // mainMenuForm
             // 

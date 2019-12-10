@@ -8,16 +8,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wypozyczalnia.Bizness;
+using System.Threading;
 
 namespace wypozyczalnia
 {
     public partial class loginForm : Form
     {
+        Thread newThread;
         public loginForm()
         {
             InitializeComponent();
         }
-
+        public void isSelectedChecker()
+        {
+            if ((this.login_textBox.Text != "") && (this.password_textBox.Text != ""))
+            {
+                this.login_button.Enabled = true;
+            }
+            else
+            {
+                this.login_button.Enabled = false;
+            }
+        }
+        private void openNewForm_mainMenuForm()
+        {
+            Form formSelected = new mainMenuForm();
+            Application.Run(formSelected);
+        }
         private void login_button_Click(object sender, EventArgs e)
         {
             int Check;
@@ -26,13 +43,25 @@ namespace wypozyczalnia
             Check = login.Status;
             if (Check == 1)
             {
-                //TODO : Pojawienie się menu ponieważ 1 jest statusem poprawnego zalogowania
+                this.Close();
+                newThread = new Thread(openNewForm_mainMenuForm);
+                newThread.SetApartmentState(ApartmentState.STA);
+                newThread.Start();
             }
             else
             {
-                //Michał : Sprawdz czy tekst w alercie jest poprawny, narazie dałem na sztywno błędne logowanie, po zrobieniu bazy dam ci skrypt do niej i będziesz mógł się bawić samemu.
                 MessageBox.Show("Błąd logowania Proszę o kontakt z kierownikiem", "Błąd logowania");
             }
+        }
+
+        private void login_textBox_TextChanged(object sender, EventArgs e)
+        {
+            isSelectedChecker();
+        }
+
+        private void password_textBox_TextChanged(object sender, EventArgs e)
+        {
+            isSelectedChecker();
         }
     }
 }

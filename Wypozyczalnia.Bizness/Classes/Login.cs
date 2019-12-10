@@ -16,12 +16,12 @@ namespace Wypozyczalnia.Bizness
 
             if (_password == HashPassword)
             {
-                Status = 2;
+                Status = 1;
                 return Status;
             }
             else
             {
-                Status = 2;
+                Status = 1;
                 return Status;
             }
 
