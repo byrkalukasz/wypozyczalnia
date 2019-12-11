@@ -8,13 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wypozyczalnia.Bizness;
-using System.Threading;
 
 namespace wypozyczalnia
 {
     public partial class loginForm : Form
     {
-        Thread newThread;
         public loginForm()
         {
             InitializeComponent();
@@ -30,11 +28,6 @@ namespace wypozyczalnia
                 this.login_button.Enabled = false;
             }
         }
-        private void openNewForm_mainMenuForm()
-        {
-            Form formSelected = new mainMenuForm();
-            Application.Run(formSelected);
-        }
         private void login_button_Click(object sender, EventArgs e)
         {
             int Check;
@@ -43,10 +36,9 @@ namespace wypozyczalnia
             Check = login.Status;
             if (Check == 1)
             {
-                this.Close();
-                newThread = new Thread(openNewForm_mainMenuForm);
-                newThread.SetApartmentState(ApartmentState.STA);
-                newThread.Start();
+                this.Hide();
+                mainMenuForm mainMenuOpenForm = new mainMenuForm();
+                mainMenuOpenForm.Show();
             }
             else
             {
