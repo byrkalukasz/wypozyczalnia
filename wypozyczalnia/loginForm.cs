@@ -32,13 +32,13 @@ namespace wypozyczalnia
         {
             int Check;
             Login login = new Login();
-            login.DataCheck(login_textBox.Text, password_textBox.Text);
-            Check = login.Status;
+            Check = login.DataCheck(login_textBox.Text, password_textBox.Text);
             if (Check == 1)
             {
                 this.Hide();
                 mainMenuForm mainMenuOpenForm = new mainMenuForm();
                 mainMenuOpenForm.Show();
+
             }
             else
             {
