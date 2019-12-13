@@ -16,5 +16,10 @@ namespace wypozyczalnia
         {
             InitializeComponent();
         }
+
+        private void carAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

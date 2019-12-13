@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Wypozyczalnia.Bizness
 {
-    class DataBaseAction
+    class DataBaseAction : ICarActions, IClientActions
     {
         string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
 
@@ -28,5 +28,43 @@ namespace Wypozyczalnia.Bizness
             }
             return Check;
         }
+        public void AddCar()
+        {
+
+        }
+
+        public void AddCarData()
+        {
+
+        }
+
+        public void RentCar()
+        {
+
+        }
+
+        public void GetBackCar()
+        {
+
+        }
+
+        public void RegisterCar()
+        {
+
+        }
+        public void AddClient()
+        {
+
+        }
+        public void ModyfiClient()
+        {
+
+        }
+
+        public void DeleteClient()
+        {
+
+        }
+
     }
 }

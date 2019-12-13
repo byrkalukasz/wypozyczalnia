@@ -111,6 +111,7 @@
             this.carAddButton.TabIndex = 0;
             this.carAddButton.Text = "Dodaj samochód";
             this.carAddButton.UseVisualStyleBackColor = false;
+            this.carAddButton.Click += new System.EventHandler(this.carAddButton_Click);
             // 
             // carEditButton
             // 
