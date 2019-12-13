@@ -108,6 +108,7 @@
             this.carRemove_button.TabIndex = 26;
             this.carRemove_button.Text = "USUŃ";
             this.carRemove_button.UseVisualStyleBackColor = false;
+            this.carRemove_button.Click += new System.EventHandler(this.carRemove_button_Click);
             // 
             // carIdentifierNextID_button
             // 
@@ -157,8 +158,9 @@
             this.carCancel_button.Name = "carCancel_button";
             this.carCancel_button.Size = new System.Drawing.Size(138, 30);
             this.carCancel_button.TabIndex = 5;
-            this.carCancel_button.Text = "ANULUJ";
+            this.carCancel_button.Text = "WRÓĆ DO MENU";
             this.carCancel_button.UseVisualStyleBackColor = false;
+            this.carCancel_button.Click += new System.EventHandler(this.carCancel_button_Click);
             // 
             // carSave_button
             // 
@@ -171,6 +173,7 @@
             this.carSave_button.TabIndex = 4;
             this.carSave_button.Text = "ZAPISZ";
             this.carSave_button.UseVisualStyleBackColor = false;
+            this.carSave_button.Click += new System.EventHandler(this.carSave_button_Click);
             // 
             // carInfo_groupBox
             // 

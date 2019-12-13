@@ -298,6 +298,7 @@
             this.personRemove_button.TabIndex = 26;
             this.personRemove_button.Text = "USUŃ";
             this.personRemove_button.UseVisualStyleBackColor = false;
+            this.personRemove_button.Click += new System.EventHandler(this.personRemove_button_Click);
             // 
             // personCancel_button
             // 
@@ -308,7 +309,7 @@
             this.personCancel_button.Name = "personCancel_button";
             this.personCancel_button.Size = new System.Drawing.Size(138, 30);
             this.personCancel_button.TabIndex = 29;
-            this.personCancel_button.Text = "ANULUJ";
+            this.personCancel_button.Text = "WRÓĆ DO MENU";
             this.personCancel_button.UseCompatibleTextRendering = true;
             this.personCancel_button.UseVisualStyleBackColor = false;
             this.personCancel_button.Click += new System.EventHandler(this.carCancel_button_Click);
@@ -325,6 +326,7 @@
             this.personSave_button.TabIndex = 28;
             this.personSave_button.Text = "ZAPISZ";
             this.personSave_button.UseVisualStyleBackColor = false;
+            this.personSave_button.Click += new System.EventHandler(this.personSave_button_Click);
             // 
             // personInfo_groupBox
             // 

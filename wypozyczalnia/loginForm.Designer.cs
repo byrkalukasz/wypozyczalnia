@@ -59,6 +59,7 @@
             // login_button
             // 
             this.login_button.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.login_button.Enabled = false;
             this.login_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.login_button.ForeColor = System.Drawing.Color.Purple;
             this.login_button.Location = new System.Drawing.Point(324, 19);
@@ -79,6 +80,7 @@
             this.password_textBox.PasswordChar = '*';
             this.password_textBox.Size = new System.Drawing.Size(206, 20);
             this.password_textBox.TabIndex = 3;
+            this.password_textBox.TextChanged += new System.EventHandler(this.password_textBox_TextChanged);
             // 
             // login_textBox
             // 
@@ -89,6 +91,7 @@
             this.login_textBox.Name = "login_textBox";
             this.login_textBox.Size = new System.Drawing.Size(206, 20);
             this.login_textBox.TabIndex = 2;
+            this.login_textBox.TextChanged += new System.EventHandler(this.login_textBox_TextChanged);
             // 
             // password_label
             // 
@@ -132,7 +135,7 @@
             this.Controls.Add(this.loginData_groupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "loginForm";
-            this.Text = "Logowanie do systemu wypożyczalni";
+            this.Text = "Logowanie do systemu";
             this.loginData_groupBox.ResumeLayout(false);
             this.loginData_groupBox.PerformLayout();
             this.ResumeLayout(false);

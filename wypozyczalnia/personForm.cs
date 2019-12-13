@@ -7,42 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace wypozyczalnia
 {
     public partial class personForm : Form
     {
-        Thread newThread;
         public personForm()
         {
             InitializeComponent();
         }
-        private void openNewForm(object obj)  // Tworzenie wątku dla nowego okna
-        {
-            Application.Run(new mainMenuForm());
-        }
-
-        public void initializePersonSwitches(int type)        // Wybieranie odpowuiednich pól dla danego typu klienta
-        {
-            if(type==1) // Ustawienie aktywnych przełączników dla pracownika
-            {
-                this.personInfoJobPosition_comboBox.Enabled = true;
-
-
-                //this.carPriceYear_label.Text = "aaaaaaaaaaa";
-                //this.personInfoName_textBox.Enabled = true;
-            }
-            else if (type == 2) // Ustawienie aktywnych przełączników dla klienta
-            {
-                //this.carPriceYear_label.Text = "bbbbbbbbbbbbbb";
-            }
-            else
-            {
-                // ERROR ?????????????????
-            }
-        }
-
         public void isSelectedChecker()
         {
             if (((this.personIdentifierTypeCustomer_radioButton.Checked) || (this.personIdentifierTypeEmployee_radioButton.Checked)) && ((this.personIdentifierClientTypeCompany_radioButton.Checked) || (this.personIdentifierClientTypeHuman_radioButton.Checked)))
@@ -59,15 +32,6 @@ namespace wypozyczalnia
             int valueNumeric = Int32.Parse(valueString) + value;
             this.personIdentifierID_textBox.Text = valueNumeric.ToString();
         }
-
-        private void carCancel_button_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            newThread = new Thread(openNewForm);
-            newThread.SetApartmentState(ApartmentState.STA);
-            newThread.Start();
-        }
-
         private void personIdentifierTypeCustomer_radioButton_CheckedChanged(object sender, EventArgs e)
         {
             isSelectedChecker();
@@ -118,5 +82,20 @@ namespace wypozyczalnia
             personIdentifierValueWorker(-1, this.personIdentifierID_textBox.Text);
         }
 
+        private void personRemove_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void personSave_button_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void carCancel_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainMenuForm mainMenuOpenForm = new mainMenuForm();
+            mainMenuOpenForm.Show();
+        }
     }
 }

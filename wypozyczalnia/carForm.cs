@@ -16,5 +16,21 @@ namespace wypozyczalnia
         {
             InitializeComponent();
         }
+
+        private void carSave_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void carRemove_button_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void carCancel_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainMenuForm mainMenuOpenForm = new mainMenuForm();
+            mainMenuOpenForm.Show();
+        }
     }
 }

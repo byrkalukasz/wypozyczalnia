@@ -17,7 +17,17 @@ namespace wypozyczalnia
         {
             InitializeComponent();
         }
-
+        public void isSelectedChecker()
+        {
+            if ((this.login_textBox.Text != "") && (this.password_textBox.Text != ""))
+            {
+                this.login_button.Enabled = true;
+            }
+            else
+            {
+                this.login_button.Enabled = false;
+            }
+        }
         private void login_button_Click(object sender, EventArgs e)
         {
             int Check;
@@ -26,14 +36,24 @@ namespace wypozyczalnia
             if (Check == 1)
             {
                 this.Hide();
-                mainMenuForm mainMenu = new mainMenuForm();
-                mainMenu.Show();
+                mainMenuForm mainMenuOpenForm = new mainMenuForm();
+                mainMenuOpenForm.Show();
+
             }
             else
             {
-                //Michał : Sprawdz czy tekst w alercie jest poprawny, narazie dałem na sztywno błędne logowanie, po zrobieniu bazy dam ci skrypt do niej i będziesz mógł się bawić samemu.
                 MessageBox.Show("Błąd logowania Proszę o kontakt z kierownikiem", "Błąd logowania");
             }
+        }
+
+        private void login_textBox_TextChanged(object sender, EventArgs e)
+        {
+            isSelectedChecker();
+        }
+
+        private void password_textBox_TextChanged(object sender, EventArgs e)
+        {
+            isSelectedChecker();
         }
     }
 }
