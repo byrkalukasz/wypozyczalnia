@@ -16,6 +16,12 @@ namespace wypozyczalnia
         {
             InitializeComponent();
         }
+        public void carIdentifierValueWorker(int value, object sender)
+        {
+            string valueString = this.carIdentifierID_textBox.Text;
+            int valueNumeric = Int32.Parse(valueString) + value;
+            this.carIdentifierID_textBox.Text = valueNumeric.ToString();
+        }
 
         private void carSave_button_Click(object sender, EventArgs e)
         {
@@ -31,6 +37,16 @@ namespace wypozyczalnia
             this.Hide();
             mainMenuForm mainMenuOpenForm = new mainMenuForm();
             mainMenuOpenForm.Show();
+        }
+
+        private void carIdentifierNextID_button_Click(object sender, EventArgs e)
+        {
+            carIdentifierValueWorker(+1, this.carIdentifierID_textBox.Text);
+        }
+
+        private void carIdentifierPrevID_button_Click(object sender, EventArgs e)
+        {
+            carIdentifierValueWorker(-1, this.carIdentifierID_textBox.Text);
         }
     }
 }
