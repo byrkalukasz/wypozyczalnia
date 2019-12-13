@@ -10,7 +10,20 @@ namespace Wypozyczalnia.Bizness
 {
     class DataBaseAction
     {
-        string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
+        //string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
+        string ConnectionString = @"Server=sql7.freesqldatabase.com;Initial Catalog=sql7315545; Integrated Security=True; User ID=sql7315545;Password=8nTGDuv9sh";
+        //string ConnectionString = @"User ID=*****;Password=*****;Initial Catalog=AdventureWorks;Server=MySqlServer"";
+        /*
+         * Darmowa baza danych postawiona na :
+         * Login: mikel.19952@gmail.com
+         * Hasło: gd36078gd36078
+         * Database Host: sql7.freesqldatabase.com
+         * Database Name: sql7315545
+         * Database Username: sql7315545
+         * Database Password: 8nTGDuv9sh
+         * Port number: 3306
+         * phpMyAdmin: 
+         */
 
         public int VeryfiLogin(string _query)
         {
