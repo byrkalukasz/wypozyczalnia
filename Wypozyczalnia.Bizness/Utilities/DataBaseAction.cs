@@ -8,11 +8,11 @@ using System.Data;
 
 namespace Wypozyczalnia.Bizness
 {
-    class DataBaseAction
+    class DataBaseAction : ICarActions, IClientActions
     {
-        //string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
-        string ConnectionString = @"Server=sql7.freesqldatabase.com;Initial Catalog=sql7315545; Integrated Security=True; User ID=sql7315545;Password=8nTGDuv9sh";
-        //string ConnectionString = @"User ID=*****;Password=*****;Initial Catalog=AdventureWorks;Server=MySqlServer"";
+
+        static string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
+        SqlConnection connection = new SqlConnection(ConnectionString);
         /*
          * Darmowa baza danych postawiona na :
          * Login: mikel.19952@gmail.com
@@ -28,7 +28,6 @@ namespace Wypozyczalnia.Bizness
         public int VeryfiLogin(string _query)
         {
             int Check = 0;
-            SqlConnection connection = new SqlConnection(ConnectionString);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(_query,connection);
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
@@ -41,5 +40,46 @@ namespace Wypozyczalnia.Bizness
             }
             return Check;
         }
+        public int AddCar(string _query)
+        {
+            int ID = 0;
+            SqlCommand AddCar = new SqlCommand(_query, connection);
+
+            return ID;
+        }
+
+        public void AddCarData()
+        {
+
+        }
+
+        public void RentCar()
+        {
+
+        }
+
+        public void GetBackCar()
+        {
+
+        }
+
+        public void RegisterCar()
+        {
+
+        }
+        public void AddClient()
+        {
+
+        }
+        public void ModyfiClient()
+        {
+
+        }
+
+        public void DeleteClient()
+        {
+
+        }
+
     }
 }

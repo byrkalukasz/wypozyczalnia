@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wypozyczalnia.Bizness;
 
 namespace wypozyczalnia
 {
     public partial class carForm : Form
     {
-        public carForm()
+        public carForm(int _option)
         {
             InitializeComponent();
+            Car car = new Car();
+            if (_option == 1)
+                carIdentifier_groupBox.Visible = false;
         }
         public void carIdentifierValueWorker(int value, object sender)
         {
@@ -32,6 +36,7 @@ namespace wypozyczalnia
         {
 
         }
+
         private void carCancel_button_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -47,6 +52,10 @@ namespace wypozyczalnia
         private void carIdentifierPrevID_button_Click(object sender, EventArgs e)
         {
             carIdentifierValueWorker(-1, this.carIdentifierID_textBox.Text);
+        }
+        private void carForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

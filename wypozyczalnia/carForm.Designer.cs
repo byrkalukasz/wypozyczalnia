@@ -594,6 +594,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "carForm";
             this.Text = "Zarządzanie pojazdami";
+            this.Load += new System.EventHandler(this.carForm_Load);
             this.carIdentifier_groupBox.ResumeLayout(false);
             this.carIdentifier_groupBox.PerformLayout();
             this.carInfo_groupBox.ResumeLayout(false);
