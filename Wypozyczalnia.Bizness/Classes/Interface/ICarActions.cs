@@ -8,7 +8,7 @@ namespace Wypozyczalnia.Bizness
 {
     public interface ICarActions
     {
-        void AddCar();
+        int AddCar(string _query);
 
         void AddCarData();
 

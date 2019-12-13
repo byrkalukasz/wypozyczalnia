@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wypozyczalnia.Bizness;
 
 namespace wypozyczalnia
 {
     public partial class mainMenuForm : Form
     {
+        public int Option = 0;
         public mainMenuForm()
         {
             InitializeComponent();
@@ -20,20 +22,24 @@ namespace wypozyczalnia
 
         private void carAddButton_Click(object sender, EventArgs e)
         {
-
+            int Option;
+            this.Hide();
+            Option = 1;
+            carForm carForm = new carForm(Option);
+            carForm.Show();
         }
         // ==================================================================================== Zarządzanie samochodami
         private void carEditButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            carForm carOpenForm = new carForm();
+            carForm carOpenForm = new carForm(Option);
             carOpenForm.Show();
         }
 
         private void carRemoveButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            carForm carOpenForm = new carForm();
+            carForm carOpenForm = new carForm(Option);
             carOpenForm.Show();
         }
         // ==================================================================================== Zarządzanie klientami

@@ -10,12 +10,12 @@ namespace Wypozyczalnia.Bizness
 {
     class DataBaseAction : ICarActions, IClientActions
     {
-        string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
+        static string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
+        SqlConnection connection = new SqlConnection(ConnectionString);
 
         public int VeryfiLogin(string _query)
         {
             int Check = 0;
-            SqlConnection connection = new SqlConnection(ConnectionString);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(_query,connection);
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
@@ -28,9 +28,12 @@ namespace Wypozyczalnia.Bizness
             }
             return Check;
         }
-        public void AddCar()
+        public int AddCar(string _query)
         {
+            int ID = 0;
+            SqlCommand AddCar = new SqlCommand(_query, connection);
 
+            return ID;
         }
 
         public void AddCarData()
