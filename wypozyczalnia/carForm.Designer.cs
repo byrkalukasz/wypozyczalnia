@@ -41,7 +41,6 @@
             this.carInfoDataTechnicalReview_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.carInfoDataOC_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.carInfoReservedTRUE_checkBox = new System.Windows.Forms.CheckBox();
-            this.carInfoAvailability_label = new System.Windows.Forms.Label();
             this.carInfoAvailabileTRUE_checkBox = new System.Windows.Forms.CheckBox();
             this.carInfoBody_comboBox = new System.Windows.Forms.ComboBox();
             this.carInfoVIN_textBox = new System.Windows.Forms.TextBox();
@@ -76,10 +75,12 @@
             this.carPriceDay_textBox = new System.Windows.Forms.TextBox();
             this.carAdditional_groupBox = new System.Windows.Forms.GroupBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.carInfoAvailability_groupBox = new System.Windows.Forms.GroupBox();
             this.carIdentifier_groupBox.SuspendLayout();
             this.carInfo_groupBox.SuspendLayout();
             this.carPrice_groupBox.SuspendLayout();
             this.carAdditional_groupBox.SuspendLayout();
+            this.carInfoAvailability_groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // carIdentifier_groupBox
@@ -92,7 +93,7 @@
             this.carIdentifier_groupBox.ForeColor = System.Drawing.Color.Purple;
             this.carIdentifier_groupBox.Location = new System.Drawing.Point(12, 12);
             this.carIdentifier_groupBox.Name = "carIdentifier_groupBox";
-            this.carIdentifier_groupBox.Size = new System.Drawing.Size(664, 57);
+            this.carIdentifier_groupBox.Size = new System.Drawing.Size(481, 57);
             this.carIdentifier_groupBox.TabIndex = 1;
             this.carIdentifier_groupBox.TabStop = false;
             this.carIdentifier_groupBox.Text = "Identyfikator pojazdu";
@@ -102,7 +103,7 @@
             this.carRemove_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.carRemove_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.carRemove_button.ForeColor = System.Drawing.Color.Purple;
-            this.carRemove_button.Location = new System.Drawing.Point(435, 17);
+            this.carRemove_button.Location = new System.Drawing.Point(335, 17);
             this.carRemove_button.Name = "carRemove_button";
             this.carRemove_button.Size = new System.Drawing.Size(138, 30);
             this.carRemove_button.TabIndex = 26;
@@ -120,6 +121,7 @@
             this.carIdentifierNextID_button.TabIndex = 1;
             this.carIdentifierNextID_button.Text = "> > >";
             this.carIdentifierNextID_button.UseVisualStyleBackColor = false;
+            this.carIdentifierNextID_button.Click += new System.EventHandler(this.carIdentifierNextID_button_Click);
             // 
             // carIdentifierID_label
             // 
@@ -140,6 +142,7 @@
             this.carIdentifierPrevID_button.TabIndex = 0;
             this.carIdentifierPrevID_button.Text = "< < <";
             this.carIdentifierPrevID_button.UseVisualStyleBackColor = false;
+            this.carIdentifierPrevID_button.Click += new System.EventHandler(this.carIdentifierPrevID_button_Click);
             // 
             // carIdentifierID_textBox
             // 
@@ -154,7 +157,7 @@
             this.carCancel_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.carCancel_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.carCancel_button.ForeColor = System.Drawing.Color.Purple;
-            this.carCancel_button.Location = new System.Drawing.Point(356, 390);
+            this.carCancel_button.Location = new System.Drawing.Point(356, 376);
             this.carCancel_button.Name = "carCancel_button";
             this.carCancel_button.Size = new System.Drawing.Size(138, 30);
             this.carCancel_button.TabIndex = 5;
@@ -167,7 +170,7 @@
             this.carSave_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.carSave_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.carSave_button.ForeColor = System.Drawing.Color.Purple;
-            this.carSave_button.Location = new System.Drawing.Point(523, 390);
+            this.carSave_button.Location = new System.Drawing.Point(500, 376);
             this.carSave_button.Name = "carSave_button";
             this.carSave_button.Size = new System.Drawing.Size(138, 30);
             this.carSave_button.TabIndex = 4;
@@ -179,9 +182,6 @@
             // 
             this.carInfo_groupBox.Controls.Add(this.carInfoDataTechnicalReview_dateTimePicker);
             this.carInfo_groupBox.Controls.Add(this.carInfoDataOC_dateTimePicker);
-            this.carInfo_groupBox.Controls.Add(this.carInfoReservedTRUE_checkBox);
-            this.carInfo_groupBox.Controls.Add(this.carInfoAvailability_label);
-            this.carInfo_groupBox.Controls.Add(this.carInfoAvailabileTRUE_checkBox);
             this.carInfo_groupBox.Controls.Add(this.carInfoBody_comboBox);
             this.carInfo_groupBox.Controls.Add(this.carInfoVIN_textBox);
             this.carInfo_groupBox.Controls.Add(this.carInfoVIN_label);
@@ -208,7 +208,7 @@
             this.carInfo_groupBox.ForeColor = System.Drawing.Color.Purple;
             this.carInfo_groupBox.Location = new System.Drawing.Point(12, 75);
             this.carInfo_groupBox.Name = "carInfo_groupBox";
-            this.carInfo_groupBox.Size = new System.Drawing.Size(329, 363);
+            this.carInfo_groupBox.Size = new System.Drawing.Size(329, 331);
             this.carInfo_groupBox.TabIndex = 2;
             this.carInfo_groupBox.TabStop = false;
             this.carInfo_groupBox.Text = "Podstawowe informacje o pojezdzie";
@@ -239,29 +239,20 @@
             // 
             this.carInfoReservedTRUE_checkBox.AutoSize = true;
             this.carInfoReservedTRUE_checkBox.Enabled = false;
-            this.carInfoReservedTRUE_checkBox.Location = new System.Drawing.Point(209, 332);
+            this.carInfoReservedTRUE_checkBox.Location = new System.Drawing.Point(6, 34);
             this.carInfoReservedTRUE_checkBox.Name = "carInfoReservedTRUE_checkBox";
-            this.carInfoReservedTRUE_checkBox.Size = new System.Drawing.Size(114, 17);
+            this.carInfoReservedTRUE_checkBox.Size = new System.Drawing.Size(101, 17);
             this.carInfoReservedTRUE_checkBox.TabIndex = 29;
             this.carInfoReservedTRUE_checkBox.Text = "Zarezerwowany";
             this.carInfoReservedTRUE_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // carInfoAvailability_label
-            // 
-            this.carInfoAvailability_label.AutoSize = true;
-            this.carInfoAvailability_label.Location = new System.Drawing.Point(6, 332);
-            this.carInfoAvailability_label.Name = "carInfoAvailability_label";
-            this.carInfoAvailability_label.Size = new System.Drawing.Size(120, 13);
-            this.carInfoAvailability_label.TabIndex = 28;
-            this.carInfoAvailability_label.Text = "Czy samochód jest: ";
             // 
             // carInfoAvailabileTRUE_checkBox
             // 
             this.carInfoAvailabileTRUE_checkBox.AutoSize = true;
             this.carInfoAvailabileTRUE_checkBox.Enabled = false;
-            this.carInfoAvailabileTRUE_checkBox.Location = new System.Drawing.Point(132, 332);
+            this.carInfoAvailabileTRUE_checkBox.Location = new System.Drawing.Point(6, 17);
             this.carInfoAvailabileTRUE_checkBox.Name = "carInfoAvailabileTRUE_checkBox";
-            this.carInfoAvailabileTRUE_checkBox.Size = new System.Drawing.Size(79, 17);
+            this.carInfoAvailabileTRUE_checkBox.Size = new System.Drawing.Size(71, 17);
             this.carInfoAvailabileTRUE_checkBox.TabIndex = 27;
             this.carInfoAvailabileTRUE_checkBox.Text = "Dostępny";
             this.carInfoAvailabileTRUE_checkBox.UseVisualStyleBackColor = true;
@@ -477,14 +468,14 @@
             this.carPrice_groupBox.ForeColor = System.Drawing.Color.Purple;
             this.carPrice_groupBox.Location = new System.Drawing.Point(347, 75);
             this.carPrice_groupBox.Name = "carPrice_groupBox";
-            this.carPrice_groupBox.Size = new System.Drawing.Size(329, 75);
+            this.carPrice_groupBox.Size = new System.Drawing.Size(298, 75);
             this.carPrice_groupBox.TabIndex = 24;
             this.carPrice_groupBox.TabStop = false;
             this.carPrice_groupBox.Text = "Podstawowy cennik";
             // 
             // carPriceYear_textBox
             // 
-            this.carPriceYear_textBox.Location = new System.Drawing.Point(226, 46);
+            this.carPriceYear_textBox.Location = new System.Drawing.Point(203, 45);
             this.carPriceYear_textBox.Name = "carPriceYear_textBox";
             this.carPriceYear_textBox.Size = new System.Drawing.Size(88, 20);
             this.carPriceYear_textBox.TabIndex = 9;
@@ -493,7 +484,7 @@
             // carPriceYear_label
             // 
             this.carPriceYear_label.AutoSize = true;
-            this.carPriceYear_label.Location = new System.Drawing.Point(174, 48);
+            this.carPriceYear_label.Location = new System.Drawing.Point(156, 47);
             this.carPriceYear_label.Name = "carPriceYear_label";
             this.carPriceYear_label.Size = new System.Drawing.Size(27, 13);
             this.carPriceYear_label.TabIndex = 8;
@@ -501,7 +492,7 @@
             // 
             // carPriceMonth_textBox
             // 
-            this.carPriceMonth_textBox.Location = new System.Drawing.Point(58, 45);
+            this.carPriceMonth_textBox.Location = new System.Drawing.Point(55, 45);
             this.carPriceMonth_textBox.Name = "carPriceMonth_textBox";
             this.carPriceMonth_textBox.Size = new System.Drawing.Size(88, 20);
             this.carPriceMonth_textBox.TabIndex = 5;
@@ -509,7 +500,7 @@
             // 
             // carPriceWeek_textBox
             // 
-            this.carPriceWeek_textBox.Location = new System.Drawing.Point(226, 19);
+            this.carPriceWeek_textBox.Location = new System.Drawing.Point(203, 18);
             this.carPriceWeek_textBox.Name = "carPriceWeek_textBox";
             this.carPriceWeek_textBox.Size = new System.Drawing.Size(88, 20);
             this.carPriceWeek_textBox.TabIndex = 3;
@@ -518,7 +509,7 @@
             // carPriceWeek_label
             // 
             this.carPriceWeek_label.AutoSize = true;
-            this.carPriceWeek_label.Location = new System.Drawing.Point(174, 22);
+            this.carPriceWeek_label.Location = new System.Drawing.Point(156, 21);
             this.carPriceWeek_label.Name = "carPriceWeek_label";
             this.carPriceWeek_label.Size = new System.Drawing.Size(44, 13);
             this.carPriceWeek_label.TabIndex = 2;
@@ -527,7 +518,7 @@
             // carPriceMonth_label
             // 
             this.carPriceMonth_label.AutoSize = true;
-            this.carPriceMonth_label.Location = new System.Drawing.Point(6, 48);
+            this.carPriceMonth_label.Location = new System.Drawing.Point(8, 48);
             this.carPriceMonth_label.Name = "carPriceMonth_label";
             this.carPriceMonth_label.Size = new System.Drawing.Size(43, 13);
             this.carPriceMonth_label.TabIndex = 4;
@@ -536,7 +527,7 @@
             // carPriceDay_label
             // 
             this.carPriceDay_label.AutoSize = true;
-            this.carPriceDay_label.Location = new System.Drawing.Point(6, 22);
+            this.carPriceDay_label.Location = new System.Drawing.Point(8, 22);
             this.carPriceDay_label.Name = "carPriceDay_label";
             this.carPriceDay_label.Size = new System.Drawing.Size(34, 13);
             this.carPriceDay_label.TabIndex = 0;
@@ -544,7 +535,7 @@
             // 
             // carPriceDay_textBox
             // 
-            this.carPriceDay_textBox.Location = new System.Drawing.Point(58, 19);
+            this.carPriceDay_textBox.Location = new System.Drawing.Point(55, 19);
             this.carPriceDay_textBox.Name = "carPriceDay_textBox";
             this.carPriceDay_textBox.Size = new System.Drawing.Size(88, 20);
             this.carPriceDay_textBox.TabIndex = 1;
@@ -556,7 +547,7 @@
             this.carAdditional_groupBox.ForeColor = System.Drawing.Color.Purple;
             this.carAdditional_groupBox.Location = new System.Drawing.Point(348, 157);
             this.carAdditional_groupBox.Name = "carAdditional_groupBox";
-            this.carAdditional_groupBox.Size = new System.Drawing.Size(328, 213);
+            this.carAdditional_groupBox.Size = new System.Drawing.Size(297, 213);
             this.carAdditional_groupBox.TabIndex = 25;
             this.carAdditional_groupBox.TabStop = false;
             this.carAdditional_groupBox.Text = "Dodatkowe informacje ";
@@ -573,14 +564,27 @@
             "Relingi dachowe"});
             this.checkedListBox1.Location = new System.Drawing.Point(8, 18);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(305, 184);
+            this.checkedListBox1.Size = new System.Drawing.Size(282, 184);
             this.checkedListBox1.TabIndex = 2;
+            // 
+            // carInfoAvailability_groupBox
+            // 
+            this.carInfoAvailability_groupBox.Controls.Add(this.carInfoAvailabileTRUE_checkBox);
+            this.carInfoAvailability_groupBox.Controls.Add(this.carInfoReservedTRUE_checkBox);
+            this.carInfoAvailability_groupBox.ForeColor = System.Drawing.Color.Purple;
+            this.carInfoAvailability_groupBox.Location = new System.Drawing.Point(499, 12);
+            this.carInfoAvailability_groupBox.Name = "carInfoAvailability_groupBox";
+            this.carInfoAvailability_groupBox.Size = new System.Drawing.Size(146, 57);
+            this.carInfoAvailability_groupBox.TabIndex = 25;
+            this.carInfoAvailability_groupBox.TabStop = false;
+            this.carInfoAvailability_groupBox.Text = "Czy samochód jest";
             // 
             // carForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 444);
+            this.ClientSize = new System.Drawing.Size(654, 416);
+            this.Controls.Add(this.carInfoAvailability_groupBox);
             this.Controls.Add(this.carCancel_button);
             this.Controls.Add(this.carSave_button);
             this.Controls.Add(this.carAdditional_groupBox);
@@ -598,6 +602,8 @@
             this.carPrice_groupBox.ResumeLayout(false);
             this.carPrice_groupBox.PerformLayout();
             this.carAdditional_groupBox.ResumeLayout(false);
+            this.carInfoAvailability_groupBox.ResumeLayout(false);
+            this.carInfoAvailability_groupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -642,7 +648,6 @@
         private System.Windows.Forms.Label carPriceMonth_label;
         private System.Windows.Forms.Label carPriceDay_label;
         private System.Windows.Forms.TextBox carPriceDay_textBox;
-        private System.Windows.Forms.Label carInfoAvailability_label;
         private System.Windows.Forms.CheckBox carInfoAvailabileTRUE_checkBox;
         private System.Windows.Forms.GroupBox carAdditional_groupBox;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
@@ -650,5 +655,6 @@
         private System.Windows.Forms.Button carRemove_button;
         private System.Windows.Forms.DateTimePicker carInfoDataOC_dateTimePicker;
         private System.Windows.Forms.DateTimePicker carInfoDataTechnicalReview_dateTimePicker;
+        private System.Windows.Forms.GroupBox carInfoAvailability_groupBox;
     }
 }

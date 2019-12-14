@@ -20,6 +20,12 @@ namespace wypozyczalnia
             if (_option == 1)
                 carIdentifier_groupBox.Visible = false;
         }
+        public void carIdentifierValueWorker(int value, object sender)
+        {
+            string valueString = this.carIdentifierID_textBox.Text;
+            int valueNumeric = Int32.Parse(valueString) + value;
+            this.carIdentifierID_textBox.Text = valueNumeric.ToString();
+        }
 
         private void carSave_button_Click(object sender, EventArgs e)
         {
@@ -38,6 +44,15 @@ namespace wypozyczalnia
             mainMenuOpenForm.Show();
         }
 
+        private void carIdentifierNextID_button_Click(object sender, EventArgs e)
+        {
+            carIdentifierValueWorker(+1, this.carIdentifierID_textBox.Text);
+        }
+
+        private void carIdentifierPrevID_button_Click(object sender, EventArgs e)
+        {
+            carIdentifierValueWorker(-1, this.carIdentifierID_textBox.Text);
+        }
         private void carForm_Load(object sender, EventArgs e)
         {
 
