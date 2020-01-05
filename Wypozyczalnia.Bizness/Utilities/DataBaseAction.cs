@@ -35,22 +35,27 @@ namespace Wypozyczalnia.Bizness
                 Check = 1;
             else
             {
+                
                 //TODO : Dodanie zwiększania ilości błędnych prób logowania
                 Check = 2;
             }
             return Check;
         }
-        public int AddCar(string _query)
+        public void AddCar(string _query)
         {
             int ID = 0;
             SqlCommand AddCar = new SqlCommand(_query, connection);
+            AddCar.ExecuteNonQuery();
 
-            return ID;
+            AddCarData(ID);
+
         }
 
-        public void AddCarData()
+        public void AddCarData(int _iD)
         {
 
+
+            return _iD;
         }
 
         public void RentCar()
