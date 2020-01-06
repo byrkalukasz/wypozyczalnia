@@ -41,6 +41,12 @@ namespace Wypozyczalnia.Bizness
             }
             return Check;
         }
+
+        public void AddIncorrectAttempts(string _login)
+        {
+
+        }
+
         public void AddCar(string _query)
         {
             int ID = 0;
@@ -51,7 +57,7 @@ namespace Wypozyczalnia.Bizness
 
         }
 
-        public void AddCarData(int _iD)
+        public int AddCarData(int _iD)
         {
 
 
