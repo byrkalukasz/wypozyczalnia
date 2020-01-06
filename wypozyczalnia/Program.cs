@@ -16,7 +16,7 @@ namespace wypozyczalnia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainMenuForm());
+            Application.Run(new loginForm());
             //Application.Run(new mainMenuForm());
         }
     }

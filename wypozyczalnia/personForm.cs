@@ -12,6 +12,7 @@ namespace wypozyczalnia
 {
     public partial class personForm : Form
     {
+        public string Login;
         public personForm()
         {
             InitializeComponent();
@@ -94,7 +95,7 @@ namespace wypozyczalnia
         private void carCancel_button_Click(object sender, EventArgs e)
         {
             this.Hide();
-            mainMenuForm mainMenuOpenForm = new mainMenuForm();
+            mainMenuForm mainMenuOpenForm = new mainMenuForm(Login);
             mainMenuOpenForm.Show();
         }
     }

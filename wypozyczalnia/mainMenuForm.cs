@@ -14,9 +14,11 @@ namespace wypozyczalnia
     public partial class mainMenuForm : Form
     {
         public int Option = 0;
-        public mainMenuForm()
+        public string Login;
+        public mainMenuForm(string _login)
         {
             InitializeComponent();
+            this.Login = _login;
         }
 
 
@@ -25,21 +27,21 @@ namespace wypozyczalnia
             int Option;
             this.Hide();
             Option = 1;
-            carForm carForm = new carForm(Option);
+            carForm carForm = new carForm(Option, Login);
             carForm.Show();
         }
         // ==================================================================================== Zarządzanie samochodami
         private void carEditButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            carForm carOpenForm = new carForm(Option);
+            carForm carOpenForm = new carForm(Option, Login);
             carOpenForm.Show();
         }
 
         private void carRemoveButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            carForm carOpenForm = new carForm(Option);
+            carForm carOpenForm = new carForm(Option, Login);
             carOpenForm.Show();
         }
         // ==================================================================================== Zarządzanie klientami

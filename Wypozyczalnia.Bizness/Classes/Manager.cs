@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wypozyczalnia.Bizness
 {
-    class Manager : Person, ICarActions, IClientActions
+    class Manager : Person
     {
         Security security = new Security();
         public void AddEmploee()

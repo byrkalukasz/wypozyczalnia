@@ -30,19 +30,19 @@ namespace wypozyczalnia
         }
         private void login_button_Click(object sender, EventArgs e)
         {
-            int Check;
             Login login = new Login();
-            Check = login.DataCheck(login_textBox.Text, password_textBox.Text);
-            if (Check == 1)
+            string Login = login_textBox.Text, Password = password_textBox.Text;
+            bool Check = login.ValidateCredentials(Login, Password);
+            if (Check == true)
             {
-                this.Hide();
-                mainMenuForm mainMenuOpenForm = new mainMenuForm();
-                mainMenuOpenForm.Show();
 
+                this.Hide();
+                mainMenuForm menu = new mainMenuForm(Login);
+                menu.Show();
             }
             else
             {
-                MessageBox.Show("Błąd logowania Proszę o kontakt z kierownikiem", "Błąd logowania");
+                MessageBox.Show("Podano błedne dane logowanie lub konto zablokowane");
             }
         }
 

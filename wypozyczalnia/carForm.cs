@@ -13,9 +13,11 @@ namespace wypozyczalnia
 {
     public partial class carForm : Form
     {
-        public carForm(int _option)
+        public string Login;
+        public carForm(int _option, string _login)
         {
             InitializeComponent();
+            this.Login = _login;
             Car car = new Car();
             if (_option == 1)
                 carIdentifier_groupBox.Visible = false;
@@ -40,7 +42,7 @@ namespace wypozyczalnia
         private void carCancel_button_Click(object sender, EventArgs e)
         {
             this.Hide();
-            mainMenuForm mainMenuOpenForm = new mainMenuForm();
+            mainMenuForm mainMenuOpenForm = new mainMenuForm(Login);
             mainMenuOpenForm.Show();
         }
 

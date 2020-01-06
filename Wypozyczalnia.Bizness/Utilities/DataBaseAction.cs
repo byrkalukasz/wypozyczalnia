@@ -8,89 +8,128 @@ using System.Data;
 
 namespace Wypozyczalnia.Bizness
 {
-    class DataBaseAction : ICarActions, IClientActions
+    class DatabaseAction
     {
+        SqlConnection connection;
+        DataTable datatable;
+        public string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia;Integrated Security=True";
 
-        static string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia; Integrated Security=True";
-        SqlConnection connection = new SqlConnection(ConnectionString);
-        /*
-         * Darmowa baza danych postawiona na :
-         * Login: mikel.19952@gmail.com
-         * Hasło: gd36078gd36078
-         * Database Host: sql7.freesqldatabase.com
-         * Database Name: sql7315545
-         * Database Username: sql7315545
-         * Database Password: 8nTGDuv9sh
-         * Port number: 3306
-         * phpMyAdmin: 
-         */
-
-        public int VeryfiLogin(string _query)
+        public bool ValidateLogin(string _query, string _login)
         {
-            int Check = 0;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(_query,connection);
-            DataTable dt = new DataTable();
-            sqlDataAdapter.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
-                Check = 1;
-            else
+            SetHelper();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(_query, connection);
+            dataAdapter.Fill(datatable);
+            try
             {
-                
-                //TODO : Dodanie zwiększania ilości błędnych prób logowania
-                Check = 2;
+                if (datatable.Rows[0][0].ToString() == "1")
+                {
+                    bool Blocked = CheckIfAccountIsBlock(_login);
+                    if (Blocked == false)
+                    {
+                        ClearInvalidAttempt(_login);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                else
+                {
+                    AddInValidAttempts(_login);
+                    return false;
+                }
             }
-            return Check;
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
         }
 
-        public void AddIncorrectAttempts(string _login)
+        public bool CheckIfAccountIsBlock(string _login)
         {
+            SetHelper();
+            string Query = "SELECT * FROM USERD WHERE LOGIN = '" + _login + "' AND ACCOUT_BLOCK = 1";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(Query, connection);
+            dataAdapter.Fill(datatable);
+            try
+            {
+                if (datatable.Rows[0][0].ToString() == "1")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
+        }
+
+        public void ClearInvalidAttempt(string _login)
+        {
+            string Query = "UPDATE USERD SET INVALID_LOGIN_ATTEMPTS = 0 WHERE LOGIN = '" + _login + "'";
+            SetHelper();
+            SqlCommand clear = new SqlCommand(Query, connection);
+            connection.Open();
+            clear.ExecuteNonQuery();
+            connection.Close();
 
         }
 
-        public void AddCar(string _query)
+        public void AddInValidAttempts(string _login)
+        {
+            string ChecQuery = "SELECT INVALID_LOGIN_ATTEMPTS FROM USERD WHERE LOGIN = '" + _login + "'";
+            int NewValue = 0, CurrentValue;
+            string value = null;
+
+            SetHelper();
+            SqlCommand command = new SqlCommand(ChecQuery, connection);
+            connection.Open();
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                value = sqlDataReader["INVALID_LOGIN_ATTEMPTS"].ToString();
+            }
+            CurrentValue = Convert.ToInt32(value);
+            NewValue = CurrentValue + 1;
+            connection.Close();
+            string AddingQuery = "UPDATE USERD SET INVALID_LOGIN_ATTEMPTS = " + NewValue + " WHERE LOGIN = '" + _login + "'";
+            SqlCommand Addcommand = new SqlCommand(AddingQuery, connection);
+            connection.Open();
+            Addcommand.ExecuteNonQuery();
+            if (NewValue == 3)
+            {
+                BlockAccount(_login);
+            }
+
+
+        }
+
+        public void BlockAccount(string _login)
+        {
+            string Query = "UPDATE USERD SET ACCOUT_BLOCK = 1 WHERE LOGIN = '" + _login + "'";
+            SetHelper();
+            SqlCommand block = new SqlCommand(Query, connection);
+            connection.Open();
+            block.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public int CheckId(string _login)
         {
             int ID = 0;
-            SqlCommand AddCar = new SqlCommand(_query, connection);
-            AddCar.ExecuteNonQuery();
 
-            AddCarData(ID);
-
+            return ID;
         }
 
-        public int AddCarData(int _iD)
+        public void SetHelper()
         {
-
-
-            return _iD;
+            connection = new SqlConnection(ConnectionString);
+            datatable = new DataTable();
         }
-
-        public void RentCar()
-        {
-
-        }
-
-        public void GetBackCar()
-        {
-
-        }
-
-        public void RegisterCar()
-        {
-
-        }
-        public void AddClient()
-        {
-
-        }
-        public void ModyfiClient()
-        {
-
-        }
-
-        public void DeleteClient()
-        {
-
-        }
-
     }
 }
