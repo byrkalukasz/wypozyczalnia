@@ -46,6 +46,10 @@
             this.reservationsRemoveButton = new System.Windows.Forms.Button();
             this.reservationsAddButton = new System.Windows.Forms.Button();
             this.reservationsEditButton = new System.Windows.Forms.Button();
+            this.whoLoginInLabel = new System.Windows.Forms.Label();
+            this.rentRemoveButton = new System.Windows.Forms.Button();
+            this.rentAddButton = new System.Windows.Forms.Button();
+            this.rentEditButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -56,7 +60,7 @@
             // 
             this.buttonCloseProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.buttonCloseProgram.ForeColor = System.Drawing.Color.Purple;
-            this.buttonCloseProgram.Location = new System.Drawing.Point(633, 400);
+            this.buttonCloseProgram.Location = new System.Drawing.Point(318, 349);
             this.buttonCloseProgram.Name = "buttonCloseProgram";
             this.buttonCloseProgram.Size = new System.Drawing.Size(138, 30);
             this.buttonCloseProgram.TabIndex = 0;
@@ -85,7 +89,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Purple;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(759, 91);
+            this.groupBox1.Size = new System.Drawing.Size(444, 69);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie pojazdami";
@@ -134,11 +138,10 @@
             this.groupBox2.Controls.Add(this.employeeRemoveButton);
             this.groupBox2.Controls.Add(this.employeeCreateButton);
             this.groupBox2.Controls.Add(this.employeeEditButton);
-            this.groupBox2.Enabled = false;
             this.groupBox2.ForeColor = System.Drawing.Color.Purple;
-            this.groupBox2.Location = new System.Drawing.Point(12, 303);
+            this.groupBox2.Location = new System.Drawing.Point(12, 274);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(759, 91);
+            this.groupBox2.Size = new System.Drawing.Size(444, 69);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Zarządzanie pracownikami";
@@ -146,7 +149,6 @@
             // employeeRemoveButton
             // 
             this.employeeRemoveButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.employeeRemoveButton.Enabled = false;
             this.employeeRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.employeeRemoveButton.ForeColor = System.Drawing.Color.Purple;
             this.employeeRemoveButton.Location = new System.Drawing.Point(294, 19);
@@ -176,9 +178,9 @@
             this.groupBox3.Controls.Add(this.customerCreateButton);
             this.groupBox3.Controls.Add(this.customerEditButton);
             this.groupBox3.ForeColor = System.Drawing.Color.Purple;
-            this.groupBox3.Location = new System.Drawing.Point(12, 109);
+            this.groupBox3.Location = new System.Drawing.Point(12, 87);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(759, 91);
+            this.groupBox3.Size = new System.Drawing.Size(444, 69);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Zarządzanie klientami";
@@ -186,7 +188,6 @@
             // customerRemoveButton
             // 
             this.customerRemoveButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.customerRemoveButton.Enabled = false;
             this.customerRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.customerRemoveButton.ForeColor = System.Drawing.Color.Purple;
             this.customerRemoveButton.Location = new System.Drawing.Point(294, 19);
@@ -225,28 +226,30 @@
             // 
             // reservationsGroupBox
             // 
+            this.reservationsGroupBox.Controls.Add(this.rentRemoveButton);
+            this.reservationsGroupBox.Controls.Add(this.rentAddButton);
+            this.reservationsGroupBox.Controls.Add(this.rentEditButton);
             this.reservationsGroupBox.Controls.Add(this.reservationsRemoveButton);
             this.reservationsGroupBox.Controls.Add(this.reservationsAddButton);
             this.reservationsGroupBox.Controls.Add(this.reservationsEditButton);
             this.reservationsGroupBox.ForeColor = System.Drawing.Color.Purple;
-            this.reservationsGroupBox.Location = new System.Drawing.Point(12, 206);
+            this.reservationsGroupBox.Location = new System.Drawing.Point(12, 162);
             this.reservationsGroupBox.Name = "reservationsGroupBox";
-            this.reservationsGroupBox.Size = new System.Drawing.Size(759, 91);
+            this.reservationsGroupBox.Size = new System.Drawing.Size(444, 106);
             this.reservationsGroupBox.TabIndex = 4;
             this.reservationsGroupBox.TabStop = false;
-            this.reservationsGroupBox.Text = "Zarządzanie rezerwacjami";
+            this.reservationsGroupBox.Text = "Zarządzanie rezerwacjami i wynajmem";
             // 
             // reservationsRemoveButton
             // 
             this.reservationsRemoveButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.reservationsRemoveButton.Enabled = false;
             this.reservationsRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
             this.reservationsRemoveButton.ForeColor = System.Drawing.Color.Purple;
             this.reservationsRemoveButton.Location = new System.Drawing.Point(294, 19);
             this.reservationsRemoveButton.Name = "reservationsRemoveButton";
             this.reservationsRemoveButton.Size = new System.Drawing.Size(138, 30);
             this.reservationsRemoveButton.TabIndex = 3;
-            this.reservationsRemoveButton.Text = "Usuń rezerwację";
+            this.reservationsRemoveButton.Text = "Anuluj rezerwację";
             this.reservationsRemoveButton.UseVisualStyleBackColor = false;
             this.reservationsRemoveButton.Click += new System.EventHandler(this.reservationsRemoveButton_Click);
             // 
@@ -276,11 +279,62 @@
             this.reservationsEditButton.UseVisualStyleBackColor = false;
             this.reservationsEditButton.Click += new System.EventHandler(this.reservationsEditButton_Click);
             // 
+            // whoLoginInLabel
+            // 
+            this.whoLoginInLabel.AutoSize = true;
+            this.whoLoginInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.whoLoginInLabel.ForeColor = System.Drawing.Color.Purple;
+            this.whoLoginInLabel.Location = new System.Drawing.Point(12, 349);
+            this.whoLoginInLabel.Name = "whoLoginInLabel";
+            this.whoLoginInLabel.Size = new System.Drawing.Size(229, 25);
+            this.whoLoginInLabel.TabIndex = 5;
+            this.whoLoginInLabel.Text = "Zalogowany: <login>";
+            // 
+            // rentRemoveButton
+            // 
+            this.rentRemoveButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rentRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
+            this.rentRemoveButton.ForeColor = System.Drawing.Color.Purple;
+            this.rentRemoveButton.Location = new System.Drawing.Point(294, 55);
+            this.rentRemoveButton.Name = "rentRemoveButton";
+            this.rentRemoveButton.Size = new System.Drawing.Size(138, 30);
+            this.rentRemoveButton.TabIndex = 6;
+            this.rentRemoveButton.Text = "Anuluj wynajem";
+            this.rentRemoveButton.UseVisualStyleBackColor = false;
+            this.rentRemoveButton.Click += new System.EventHandler(this.rentRemoveButton_Click);
+            // 
+            // rentAddButton
+            // 
+            this.rentAddButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rentAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
+            this.rentAddButton.ForeColor = System.Drawing.Color.Purple;
+            this.rentAddButton.Location = new System.Drawing.Point(6, 55);
+            this.rentAddButton.Name = "rentAddButton";
+            this.rentAddButton.Size = new System.Drawing.Size(138, 30);
+            this.rentAddButton.TabIndex = 4;
+            this.rentAddButton.Text = "Dodaj wynajem";
+            this.rentAddButton.UseVisualStyleBackColor = false;
+            this.rentAddButton.Click += new System.EventHandler(this.rentAddButton_Click);
+            // 
+            // rentEditButton
+            // 
+            this.rentEditButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rentEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.9F, System.Drawing.FontStyle.Bold);
+            this.rentEditButton.ForeColor = System.Drawing.Color.Purple;
+            this.rentEditButton.Location = new System.Drawing.Point(150, 55);
+            this.rentEditButton.Name = "rentEditButton";
+            this.rentEditButton.Size = new System.Drawing.Size(138, 30);
+            this.rentEditButton.TabIndex = 5;
+            this.rentEditButton.Text = "Edytuj wynajem";
+            this.rentEditButton.UseVisualStyleBackColor = false;
+            this.rentEditButton.Click += new System.EventHandler(this.rentEditButton_Click);
+            // 
             // mainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 444);
+            this.ClientSize = new System.Drawing.Size(471, 391);
+            this.Controls.Add(this.whoLoginInLabel);
             this.Controls.Add(this.reservationsGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonCloseProgram);
@@ -294,6 +348,7 @@
             this.groupBox3.ResumeLayout(false);
             this.reservationsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -316,5 +371,9 @@
         private System.Windows.Forms.Button reservationsRemoveButton;
         private System.Windows.Forms.Button reservationsAddButton;
         private System.Windows.Forms.Button reservationsEditButton;
+        private System.Windows.Forms.Label whoLoginInLabel;
+        private System.Windows.Forms.Button rentRemoveButton;
+        private System.Windows.Forms.Button rentAddButton;
+        private System.Windows.Forms.Button rentEditButton;
     }
 }
