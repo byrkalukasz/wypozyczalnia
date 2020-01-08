@@ -13,11 +13,11 @@ namespace wypozyczalnia
     public partial class rentReserveCar : Form
     {
         public string Login;
-        public rentReserveCar(int _option, string _login)
+        public rentReserveCar(string _option, string _login)
         {
             InitializeComponent();
             this.Login = _login;
-            if (_option == 1)
+            //if (_option == 1)
                 carIdentifier_groupBox.Visible = false;
         }
 

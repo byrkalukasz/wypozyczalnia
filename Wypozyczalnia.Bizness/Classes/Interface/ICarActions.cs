@@ -24,6 +24,8 @@ namespace Wypozyczalnia.Bizness
 
         List<Car> GetCarData(int _id);
 
+        void EditCar(int _id);
+
         void DeleteCar(int _id);
 
     }

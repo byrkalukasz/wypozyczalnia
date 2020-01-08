@@ -26,13 +26,14 @@ namespace Wypozyczalnia.Bizness
         public int WeekPrize { get; set; }
         public int MonthPrize { get; set; }
         public int YearPrize { get; set; }
+        public int Car_ID { get; set; }
         DatabaseAction databaseAction = new DatabaseAction();
         public void AddCar(string _marka, string _model)
         {
             //Dodawanie samochodu, zaczynamy od zapisu do tabeli Car, sprawdzane jest tutaj czy istnieje taki pojazd, jezeli tak to nie nadpisujemy bo po co trzymać duble.
             databaseAction.SetHelper();
             string QueryId = "SELECT ID FROM Car WHERE Marka = '" + _marka + "' AND Model = '" + _model + "'";
-            string Query = "INSERT INTO Car(Marka, Model) VALUES ('"+_marka+"','"+_model+"')";
+            string Query = "INSERT INTO Car(Marka, Model) VALUES ('" + _marka + "','" + _model + "')";
             string CarExist = null;
             SqlCommand CheckIfCarExist = new SqlCommand(QueryId, databaseAction.connection);
             SqlCommand AddCar = new SqlCommand(Query, databaseAction.connection);
@@ -54,10 +55,10 @@ namespace Wypozyczalnia.Bizness
             }
         }
 
-        public void AddCarData(string _year, string _nadwozie, string _door, string _maxpeople, string _color, string _checkdate, string _insurancedate, string _przebieg, string _number, string _VIN, int _id )
+        public void AddCarData(string _year, string _nadwozie, string _door, string _maxpeople, string _color, string _checkdate, string _insurancedate, string _przebieg, string _number, string _VIN, int _id)
         {
             string Query = "INSERT INTO CAR_DATA(Rocznik, Nadwozie, LiczbaDrzwi, MaxPasazerow, Kolor, DataPrzegladu, DataUbezpieczenia, Przebieg, NumerRejestracyjny, VIN, ID_CAR) " +
-                "VALUES('"+_year+"','"+_nadwozie+"','"+_door+"','"+_maxpeople+"','"+_color+"','"+_checkdate+"','"+_insurancedate+"','"+_przebieg+"','"+_number+"','"+_VIN+"',"+_id+")";
+                "VALUES('" + _year + "','" + _nadwozie + "','" + _door + "','" + _maxpeople + "','" + _color + "','" + _checkdate + "','" + _insurancedate + "','" + _przebieg + "','" + _number + "','" + _VIN + "'," + _id + ")";
             databaseAction.SetHelper();
             SqlCommand AddCarData = new SqlCommand(Query, databaseAction.connection);
             databaseAction.connection.Open();
@@ -69,7 +70,7 @@ namespace Wypozyczalnia.Bizness
         {
 
             databaseAction.SetHelper();
-            string Query = "INSERT INTO CAR_PRIZE(DAY,WEEK,MONTH,YEAR,ID_CAR)VALUES("+_day+","+_week+","+_month+","+_year+","+_id+")";
+            string Query = "INSERT INTO CAR_PRIZE(DAY,WEEK,MONTH,YEAR,ID_CAR)VALUES(" + _day + "," + _week + "," + _month + "," + _year + "," + _id + ")";
             SqlCommand AddCarPrize = new SqlCommand(Query, databaseAction.connection);
             databaseAction.connection.Open();
             AddCarPrize.ExecuteNonQuery();
@@ -78,7 +79,7 @@ namespace Wypozyczalnia.Bizness
         public int GetCarID(string _marka, string _model)
         {
             int ID = 0;
-            string Query = "SELECT ID FROM Car WHERE Marka = '"+_marka+"' AND Model = '"+_model+"'";
+            string Query = "SELECT ID FROM Car WHERE Marka = '" + _marka + "' AND Model = '" + _model + "'";
             databaseAction.SetHelper();
             SqlCommand CheckIfCarExist = new SqlCommand(Query, databaseAction.connection);
             databaseAction.connection.Open();
@@ -96,15 +97,35 @@ namespace Wypozyczalnia.Bizness
             List<Car> CarData = new List<Car>();
             databaseAction.SetHelper();
             int ID = 0;
-            string GetCarDataQuery = "SELECT * FROM CAR_DATA WHERE ID = "+ _id;
-            string GetCarQuery = "SELECT * FROM Car WHERE ID = "+ID;
+            string GetCarDataQuery = "  SELECT cd.ID,Marka, Model, Rocznik, Nadwozie,LiczbaDrzwi, MaxPasazerow, Kolor, DataPrzegladu, DataUbezpieczenia, Przebieg, NumerRejestracyjny, VIN, DAY, WEEK, MONTH,YEAR, ID_CAR FROM CAR_DATA cd " +
+  "JOIN Car c ON c.ID = cd.ID_CAR " +
+  "JOIN CAR_PRIZE cp ON cp.ID_CARDATA = cd.ID " +
+  "WHERE cd.ID = " + _id;
             SqlCommand GetCarDAtaCommand = new SqlCommand(GetCarDataQuery, databaseAction.connection);
             databaseAction.connection.Open();
             SqlDataReader ReadCarData = GetCarDAtaCommand.ExecuteReader();
             while (ReadCarData.Read())
             {
-                CarData.Add(new Car() { Rocznik = Convert.ToInt32(ReadCarData["Rocznik"].ToString()), Nadwozie = ReadCarData["Nadwozie"].ToString(), LiczbaDrzwi = Convert.ToInt32(ReadCarData["LiczbaDrzwi"].ToString()), MaxPasazerow = Convert.ToInt32(ReadCarData["MaxPasazerow"].ToString())
-                , KolorNadwozia = ReadCarData["Kolor"].ToString() });
+                CarData.Add(new Car()
+                {
+                    Marka = ReadCarData["Marka"].ToString(),
+                    Model = ReadCarData["Model"].ToString(),
+                    Rocznik = Convert.ToInt32(ReadCarData["Rocznik"].ToString()),
+                    Nadwozie = ReadCarData["Nadwozie"].ToString(),
+                    LiczbaDrzwi = Convert.ToInt32(ReadCarData["LiczbaDrzwi"].ToString()),
+                    MaxPasazerow = Convert.ToInt32(ReadCarData["MaxPasazerow"].ToString()),
+                    KolorNadwozia = ReadCarData["Kolor"].ToString(),
+                    DataPrzegladu = ReadCarData["DataPrzegladu"].ToString(),
+                    DataUbezpieczenia = ReadCarData["DataUbezpieczenia"].ToString(),
+                    Przebieg = Convert.ToInt32(ReadCarData["Przebieg"].ToString()),
+                    NumerRejestracyjny = ReadCarData["NumerRejestracyjny"].ToString(),
+                    NumerVIN = ReadCarData["VIN"].ToString(),
+                    DayPrize = Convert.ToInt32(ReadCarData["DAY"]),
+                    WeekPrize = Convert.ToInt32(ReadCarData["WEEK"]),
+                    MonthPrize = Convert.ToInt32(ReadCarData["MONTH"]),
+                    YearPrize = Convert.ToInt32(ReadCarData["YEAR"]),
+                    Car_ID = Convert.ToInt32(ReadCarData["ID_CAR"])
+                });
             }
             databaseAction.connection.Close();
             return CarData;
@@ -113,6 +134,13 @@ namespace Wypozyczalnia.Bizness
         public void DeleteCar(int _id)
         {
 
+        }
+
+        public void EditCar(int _carId, int _cardataId)
+        {
+            string EditCarQuery;
+            string EditCarDataQuery;
+            string EditCarPrizeQuery;
         }
 
         public void RentCar(string _query)

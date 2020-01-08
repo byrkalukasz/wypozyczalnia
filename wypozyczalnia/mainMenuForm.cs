@@ -134,7 +134,7 @@ namespace wypozyczalnia
         // ====================================================================================
         private void buttonCloseProgram_Click(object sender, EventArgs e)
         {
-			this.Close();
+            Application.Exit();
         }
     }
 }
