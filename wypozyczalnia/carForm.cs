@@ -44,6 +44,7 @@ namespace wypozyczalnia
 
         private void carSave_button_Click(object sender, EventArgs e)
         {
+            List<Car> CarUpdateData = new List<Car>();
             if (Option == "Add")
             {
                 Car AddCar = new Car();
@@ -63,7 +64,16 @@ namespace wypozyczalnia
                 }
                 else
                 {
-                    EditCar.EditCar(ID_CAR, Convert.ToInt32(carIdentifierID_textBox.Text));
+                    CarUpdateData.Add(new Car()
+                    {
+                        DayPrize = Convert.ToInt32(carPriceDay_textBox.Text.ToString()),
+                        WeekPrize = Convert.ToInt32(carPriceWeek_textBox.Text.ToString()),
+                        MonthPrize = Convert.ToInt32(carPriceMonth_textBox.Text.ToString()),
+                        YearPrize = Convert.ToInt32(carPriceYear_textBox.Text.ToString()),
+                        Car_ID = ID_CAR,
+                        CarData_ID = Convert.ToInt32(carIdentifierID_textBox.Text.ToString())
+                    });
+                    EditCar.EditCar(CarUpdateData);
                 }
             }
         }

@@ -27,6 +27,7 @@ namespace Wypozyczalnia.Bizness
         public int MonthPrize { get; set; }
         public int YearPrize { get; set; }
         public int Car_ID { get; set; }
+        public int CarData_ID { get; set; }
         DatabaseAction databaseAction = new DatabaseAction();
         public void AddCar(string _marka, string _model)
         {
@@ -136,11 +137,19 @@ namespace Wypozyczalnia.Bizness
 
         }
 
-        public void EditCar(int _carId, int _cardataId)
+        public void EditCar(List<Car> CarUpdateData)
         {
-            string EditCarQuery;
+            DatabaseAction databaseAction = new DatabaseAction();
+            databaseAction.SetHelper();
+            string EditCarQuery = "UPDATE Car(Marka, Model) SET VALUES('" +CarUpdateData[0].Marka +"','"+CarUpdateData[0].Model+"') WHERE ID = "+ CarUpdateData[0].Car_ID;
             string EditCarDataQuery;
-            string EditCarPrizeQuery;
+            string EditCarPrizeQuery = "UPDATE CAR_PRIZE SET DAY ="+ CarUpdateData[0].DayPrize + "  ,WEEK ="+ CarUpdateData[0].WeekPrize + "" +
+                "  ,MONTH ="+CarUpdateData[0].MonthPrize+"  ,YEAR ="+ CarUpdateData[0].YearPrize + "  WHERE ID_CARDATA = "+ CarUpdateData[0].CarData_ID;
+                
+            SqlCommand Query = new SqlCommand(EditCarPrizeQuery, databaseAction.connection);
+            databaseAction.connection.Open();
+            Query.ExecuteNonQuery();
+            databaseAction.connection.Close();
         }
 
         public void RentCar(string _query)
