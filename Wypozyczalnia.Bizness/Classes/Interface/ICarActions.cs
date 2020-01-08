@@ -8,15 +8,23 @@ namespace Wypozyczalnia.Bizness
 {
     public interface ICarActions
     {
-        int AddCar(string _query);
+        void AddCar(string _marka, string _model);
 
-        void AddCarData();
+        void AddCarData(string _year, string _nadwozie, string _door, string _maxpeople, string _color, string _checkdate, string _insurancedate, string _przebieg, string _number, string _VIN, int _id);
 
-         void RentCar();
+        int GetCarID(string _marka, string _model);
 
-        void GetBackCar();
+        void AddCarPrize(string _day, string _week, string _month, string _year, int _id);
 
-        void RegisterCar();
+         void RentCar(string _query);
+
+        void GetBackCar(string _query);
+
+        void RegisterCar(string _query);
+
+        List<Car> GetCarData(int _id);
+
+        void DeleteCar(int _id);
 
     }
 }

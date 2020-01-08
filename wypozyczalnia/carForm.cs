@@ -14,13 +14,17 @@ namespace wypozyczalnia
     public partial class carForm : Form
     {
         public string Login;
-        public carForm(int _option, string _login)
+        public carForm(string _option, string _login)
         {
             InitializeComponent();
             this.Login = _login;
             Car car = new Car();
-            if (_option == 1)
+            if (_option == "Add")
                 carIdentifier_groupBox.Visible = false;
+            if (_option == "Edit")
+                carRemove_button.Visible = false;
+            if (_option == "Delete")
+                carSave_button.Visible = false;
         }
         public void carIdentifierValueWorker(int value, object sender)
         {
@@ -31,6 +35,14 @@ namespace wypozyczalnia
 
         private void carSave_button_Click(object sender, EventArgs e)
         {
+            
+            Car AddCar = new Car();
+            AddCar.AddCar(carInfoProducent_textBox.Text, carInfoModel_textBox.Text);
+            int ID = AddCar.GetCarID(carInfoProducent_textBox.Text, carInfoModel_textBox.Text);
+            AddCar.AddCarData(carInfoYear_textBox.Text,carInfoBody_comboBox.Text,carInfoDoors_textBox.Text,carInfoPassengers_textBox.Text,carInfoBodyColor_textBox.Text,carInfoDataTechnicalReview_dateTimePicker.Text,carInfoDataOC_dateTimePicker.Text,carInfoMileage_textBox.Text, carInfoLicensePlate_textBox.Text,carInfoVIN_textBox.Text, ID);
+            AddCar.AddCarPrize(carPriceDay_textBox.Text, carPriceWeek_textBox.Text, carPriceMonth_textBox.Text, carInfoYear_textBox.Text,ID);
+            this.Hide();
+            mainMenuForm mainMenuForm = new mainMenuForm(Login);
 
         }
 
@@ -48,7 +60,19 @@ namespace wypozyczalnia
 
         private void carIdentifierNextID_button_Click(object sender, EventArgs e)
         {
-            carIdentifierValueWorker(+1, this.carIdentifierID_textBox.Text);
+            List<Car> CarData = new List<Car>();
+            Car GetCarData = new Car();
+            do
+            {
+                carIdentifierValueWorker(+1, this.carIdentifierID_textBox.Text);
+                CarData = GetCarData.GetCarData(Convert.ToInt32(carIdentifierID_textBox.Text));
+            } while(CarData.Count == 0);
+            carInfoYear_textBox.Text = CarData[0].Rocznik.ToString();
+            carInfoDoors_textBox.Text = CarData[0].LiczbaDrzwi.ToString();
+            carInfoBody_comboBox.Text = CarData[0].Nadwozie.ToString();
+            carInfoPassengers_textBox.Text = CarData[0].MaxPasazerow.ToString();
+            carInfoBodyColor_textBox.Text = CarData[0].KolorNadwozia.ToString();
+
         }
 
         private void carIdentifierPrevID_button_Click(object sender, EventArgs e)

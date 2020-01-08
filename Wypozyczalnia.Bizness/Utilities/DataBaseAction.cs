@@ -10,8 +10,8 @@ namespace Wypozyczalnia.Bizness
 {
     class DatabaseAction
     {
-        SqlConnection connection;
-        DataTable datatable;
+        public SqlConnection connection;
+        public DataTable datatable;
         public string ConnectionString = @"Data Source=DESKTOP-AU4UUB7\SQLEXPRESS;Initial Catalog=Wypozyczalnia;Integrated Security=True";
 
         public bool ValidateLogin(string _query, string _login)
@@ -105,8 +105,6 @@ namespace Wypozyczalnia.Bizness
             {
                 BlockAccount(_login);
             }
-
-
         }
 
         public void BlockAccount(string _login)

@@ -13,7 +13,7 @@ namespace wypozyczalnia
 {
     public partial class mainMenuForm : Form
     {
-        public int Option = 0;
+        public string Option = null;
         public string Login;
         public mainMenuForm(string _login)
         {
@@ -24,9 +24,8 @@ namespace wypozyczalnia
 
         private void carAddButton_Click(object sender, EventArgs e)
         {
-            int Option;
             this.Hide();
-            Option = 1;
+            Option = "Add";
             carForm carForm = new carForm(Option, Login);
             carForm.Show();
         }
@@ -34,6 +33,7 @@ namespace wypozyczalnia
         private void carEditButton_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Option = "Edit";
             carForm carOpenForm = new carForm(Option, Login);
             carOpenForm.Show();
         }
@@ -41,6 +41,7 @@ namespace wypozyczalnia
         private void carRemoveButton_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Option = "Delete";
             carForm carOpenForm = new carForm(Option, Login);
             carOpenForm.Show();
         }
@@ -104,8 +105,7 @@ namespace wypozyczalnia
         // ====================================================================================
         private void buttonCloseProgram_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            Application.Exit();
         }
     }
 }
