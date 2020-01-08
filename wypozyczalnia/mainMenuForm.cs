@@ -19,6 +19,7 @@ namespace wypozyczalnia
         {
             InitializeComponent();
             this.Login = _login;
+            this.whoLoginInLabel.Text = "Zalogowany: " + Login;
         }
 
 
@@ -66,21 +67,49 @@ namespace wypozyczalnia
             personForm personOpenForm = new personForm();
             personOpenForm.Show();
         }
-        // ==================================================================================== Zarządzanie rezerwacjami
+        // ==================================================================================== Zarządzanie rezerwacjami i wynajmem
         private void reservationsAddButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            rentReserveCar rentReserveCarOpenForm = new rentReserveCar(Option, Login);
+            rentReserveCarOpenForm.Show();
         }
 
         private void reservationsEditButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            rentReserveCar rentReserveCarOpenForm = new rentReserveCar(Option, Login);
+            rentReserveCarOpenForm.Show();
         }
 
         private void reservationsRemoveButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            rentReserveCar rentReserveCarOpenForm = new rentReserveCar(Option, Login);
+            rentReserveCarOpenForm.Show();
         }
+
+        private void rentAddButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            rentReserveCar rentReserveCarOpenForm = new rentReserveCar(Option, Login);
+            rentReserveCarOpenForm.Show();
+        }
+
+        private void rentEditButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            rentReserveCar rentReserveCarOpenForm = new rentReserveCar(Option, Login);
+            rentReserveCarOpenForm.Show();
+        }
+
+        private void rentRemoveButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            rentReserveCar rentReserveCarOpenForm = new rentReserveCar(Option, Login);
+            rentReserveCarOpenForm.Show();
+        }
+
         // ==================================================================================== Zarządzanie pracownikami
         private void employeeCreateButton_Click(object sender, EventArgs e)
         {
@@ -98,14 +127,14 @@ namespace wypozyczalnia
 
         private void employeeRemoveButton_Click(object sender, EventArgs e)
         {
-             this.Hide();
+            this.Hide();
             personForm personOpenForm = new personForm();
             personOpenForm.Show();
         }
         // ====================================================================================
         private void buttonCloseProgram_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+			this.Close();
         }
     }
 }

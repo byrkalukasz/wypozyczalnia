@@ -73,6 +73,12 @@
     <Compile Include="carForm.Designer.cs">
       <DependentUpon>carForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="rentReserveCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rentReserveCar.Designer.cs">
+      <DependentUpon>rentReserveCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="personForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rentReserveCar.resx">
+      <DependentUpon>rentReserveCar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

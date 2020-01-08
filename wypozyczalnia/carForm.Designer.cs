@@ -40,8 +40,6 @@
             this.carInfo_groupBox = new System.Windows.Forms.GroupBox();
             this.carInfoDataTechnicalReview_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.carInfoDataOC_dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.carInfoReservedTRUE_checkBox = new System.Windows.Forms.CheckBox();
-            this.carInfoAvailabileTRUE_checkBox = new System.Windows.Forms.CheckBox();
             this.carInfoBody_comboBox = new System.Windows.Forms.ComboBox();
             this.carInfoVIN_textBox = new System.Windows.Forms.TextBox();
             this.carInfoVIN_label = new System.Windows.Forms.Label();
@@ -64,6 +62,8 @@
             this.carInfoModel_label = new System.Windows.Forms.Label();
             this.carInfoProducent_textBox = new System.Windows.Forms.TextBox();
             this.carInfoProducent_label = new System.Windows.Forms.Label();
+            this.carInfoReservedTRUE_checkBox = new System.Windows.Forms.CheckBox();
+            this.carInfoAvailabileTRUE_checkBox = new System.Windows.Forms.CheckBox();
             this.carPrice_groupBox = new System.Windows.Forms.GroupBox();
             this.carPriceYear_textBox = new System.Windows.Forms.TextBox();
             this.carPriceYear_label = new System.Windows.Forms.Label();
@@ -234,28 +234,6 @@
             this.carInfoDataOC_dateTimePicker.Size = new System.Drawing.Size(136, 20);
             this.carInfoDataOC_dateTimePicker.TabIndex = 3;
             this.carInfoDataOC_dateTimePicker.Value = new System.DateTime(2019, 12, 6, 0, 0, 0, 0);
-            // 
-            // carInfoReservedTRUE_checkBox
-            // 
-            this.carInfoReservedTRUE_checkBox.AutoSize = true;
-            this.carInfoReservedTRUE_checkBox.Enabled = false;
-            this.carInfoReservedTRUE_checkBox.Location = new System.Drawing.Point(6, 34);
-            this.carInfoReservedTRUE_checkBox.Name = "carInfoReservedTRUE_checkBox";
-            this.carInfoReservedTRUE_checkBox.Size = new System.Drawing.Size(101, 17);
-            this.carInfoReservedTRUE_checkBox.TabIndex = 29;
-            this.carInfoReservedTRUE_checkBox.Text = "Zarezerwowany";
-            this.carInfoReservedTRUE_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // carInfoAvailabileTRUE_checkBox
-            // 
-            this.carInfoAvailabileTRUE_checkBox.AutoSize = true;
-            this.carInfoAvailabileTRUE_checkBox.Enabled = false;
-            this.carInfoAvailabileTRUE_checkBox.Location = new System.Drawing.Point(6, 17);
-            this.carInfoAvailabileTRUE_checkBox.Name = "carInfoAvailabileTRUE_checkBox";
-            this.carInfoAvailabileTRUE_checkBox.Size = new System.Drawing.Size(71, 17);
-            this.carInfoAvailabileTRUE_checkBox.TabIndex = 27;
-            this.carInfoAvailabileTRUE_checkBox.Text = "Dostępny";
-            this.carInfoAvailabileTRUE_checkBox.UseVisualStyleBackColor = true;
             // 
             // carInfoBody_comboBox
             // 
@@ -454,6 +432,28 @@
             this.carInfoProducent_label.Size = new System.Drawing.Size(65, 13);
             this.carInfoProducent_label.TabIndex = 0;
             this.carInfoProducent_label.Text = "Producent";
+            // 
+            // carInfoReservedTRUE_checkBox
+            // 
+            this.carInfoReservedTRUE_checkBox.AutoSize = true;
+            this.carInfoReservedTRUE_checkBox.Enabled = false;
+            this.carInfoReservedTRUE_checkBox.Location = new System.Drawing.Point(6, 34);
+            this.carInfoReservedTRUE_checkBox.Name = "carInfoReservedTRUE_checkBox";
+            this.carInfoReservedTRUE_checkBox.Size = new System.Drawing.Size(101, 17);
+            this.carInfoReservedTRUE_checkBox.TabIndex = 29;
+            this.carInfoReservedTRUE_checkBox.Text = "Zarezerwowany";
+            this.carInfoReservedTRUE_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // carInfoAvailabileTRUE_checkBox
+            // 
+            this.carInfoAvailabileTRUE_checkBox.AutoSize = true;
+            this.carInfoAvailabileTRUE_checkBox.Enabled = false;
+            this.carInfoAvailabileTRUE_checkBox.Location = new System.Drawing.Point(6, 17);
+            this.carInfoAvailabileTRUE_checkBox.Name = "carInfoAvailabileTRUE_checkBox";
+            this.carInfoAvailabileTRUE_checkBox.Size = new System.Drawing.Size(71, 17);
+            this.carInfoAvailabileTRUE_checkBox.TabIndex = 27;
+            this.carInfoAvailabileTRUE_checkBox.Text = "Dostępny";
+            this.carInfoAvailabileTRUE_checkBox.UseVisualStyleBackColor = true;
             // 
             // carPrice_groupBox
             // 
