@@ -26,7 +26,7 @@ namespace Wypozyczalnia.Bizness
 
         void EditCar(List<Car> CarUpdateData);
 
-        void DeleteCar(int _id);
+        void DeleteCar(int _carDataId);
 
     }
 }

@@ -76,11 +76,20 @@ namespace wypozyczalnia
                     EditCar.EditCar(CarUpdateData);
                 }
             }
+
         }
 
         private void carRemove_button_Click(object sender, EventArgs e)
         {
-
+            if (carIdentifierID_textBox.Text == null)
+            {
+                MessageBox.Show("Nie wybrano samochodu do usnięcia");
+            }
+            else
+            {
+                Car Delete = new Car();
+                Delete.DeleteCar(Convert.ToInt32(carIdentifierID_textBox.Text));
+            }
         }
 
         private void carCancel_button_Click(object sender, EventArgs e)

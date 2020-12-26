@@ -13,8 +13,9 @@ namespace wypozyczalnia
     public partial class personForm : Form
     {
         public string Login;
-        public personForm()
+        public personForm(string _who)
         {
+
             InitializeComponent();
         }
         public void isSelectedChecker()
@@ -97,6 +98,11 @@ namespace wypozyczalnia
             this.Hide();
             mainMenuForm mainMenuOpenForm = new mainMenuForm(Login);
             mainMenuOpenForm.Show();
+        }
+
+        private void personForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -132,9 +132,19 @@ namespace Wypozyczalnia.Bizness
             return CarData;
         }
 
-        public void DeleteCar(int _id)
+        public void DeleteCar(int _carDataId)
         {
-
+            DatabaseAction databaseAction = new DatabaseAction();
+            string DeleteCarData = "DELETE FROM CAR_DATA WHERE ID = " + _carDataId;
+            string DeletaCarPrize = "DELETE FROM CAR_PRIZE WHERE ID_CARDATA = " + _carDataId;
+            SqlCommand DeleteCarDataQuery = new SqlCommand(DeleteCarData, databaseAction.connection);
+            databaseAction.connection.Open();
+            DeleteCarDataQuery.ExecuteNonQuery();
+            databaseAction.connection.Close();
+            SqlCommand DeleteCarPrizeQuery = new SqlCommand(DeletaCarPrize, databaseAction.connection);
+            databaseAction.connection.Open();
+            DeleteCarPrizeQuery.ExecuteNonQuery();
+            databaseAction.connection.Close();
         }
 
         public void EditCar(List<Car> CarUpdateData)

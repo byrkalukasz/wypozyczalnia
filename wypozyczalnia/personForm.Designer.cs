@@ -572,6 +572,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "personForm";
             this.Text = "Zarządzanie klientami / pracownikami";
+            this.Load += new System.EventHandler(this.personForm_Load);
             this.personIdentifier_groupBox.ResumeLayout(false);
             this.personIdentifier_groupBox.PerformLayout();
             this.personIdentifierClientType_groupBox.ResumeLayout(false);

@@ -13,6 +13,7 @@ namespace wypozyczalnia
 {
     public partial class mainMenuForm : Form
     {
+        string _who = "Client";
         public string Option = null;
         public string Login;
         public mainMenuForm(string _login)
@@ -50,21 +51,21 @@ namespace wypozyczalnia
         private void customerCreateButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            personForm personOpenForm = new personForm();
+            personForm personOpenForm = new personForm("Client");
             personOpenForm.Show();
         }
 
         private void customerEditButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            personForm personOpenForm = new personForm();
+            personForm personOpenForm = new personForm("Client");
             personOpenForm.Show();
         }
 
         private void customerRemoveButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            personForm personOpenForm = new personForm();
+            personForm personOpenForm = new personForm("Client");
             personOpenForm.Show();
         }
         // ==================================================================================== Zarządzanie rezerwacjami i wynajmem
@@ -114,21 +115,21 @@ namespace wypozyczalnia
         private void employeeCreateButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            personForm personOpenForm = new personForm();
+            personForm personOpenForm = new personForm(_who);
             personOpenForm.Show();
         }
 
         private void employeeEditButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            personForm personOpenForm = new personForm();
+            personForm personOpenForm = new personForm(_who);
             personOpenForm.Show();
         }
 
         private void employeeRemoveButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            personForm personOpenForm = new personForm();
+            personForm personOpenForm = new personForm(_who);
             personOpenForm.Show();
         }
         // ====================================================================================
